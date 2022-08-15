@@ -63,10 +63,21 @@ const questions = [
 ];
 
 // Function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    const project = `${data.name.toLowerCase().split(' ').join('')}.json`;
+
+    fs.writeFile(project, JSON.stringify(data, null, '\t'), (err) =>
+    err ? console.log(err) : console.log('Created successfully')
+    );
+}
 
 // Function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then((res) => {
+        
+
+    })
+}
 
 // Function call to initialize app
 init();

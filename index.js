@@ -25,14 +25,7 @@ const questions = [
         type: 'list',
         message: 'Which license is your project using?',
         name: 'licensing',
-        choices: ['MIT', 'BSD', 'GNU GPL', 'None'],
-
-    },
-    {
-        type: 'input',
-        message: 'What command will be used to run tests for this project?',
-        name: 'test',
-        default: "npm run test",
+        choices: ['APACHE 2.0', 'BSD 3', 'GNU GPL', 'MIT', 'None'],
     },
     {
         type: 'input',
@@ -66,17 +59,15 @@ const questions = [
 function writeToFile(fileName, data) {
     const project = `${data.name.toLowerCase().split(' ').join('')}.json`;
 
-    fs.writeFile(project, JSON.stringify(data, null, '\t'), (err) =>
-    err ? console.log(err) : console.log('Created successfully')
-    );
+    return fs.writeFileSync(project, JSON.stringify(data), (err) =>
+    err ? console.log(err) : console.log('Created successfully'));
 }
 
 // Function to initialize app
 function init() {
     inquirer.prompt(questions).then((res) => {
-        
-
-    })
+        writeToFile('README.md', generateMarkdown({res}));
+    });
 }
 
 // Function call to initialize app

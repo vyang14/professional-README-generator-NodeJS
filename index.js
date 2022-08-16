@@ -57,7 +57,7 @@ const questions = [
 
 // Function to write README file
 function writeToFile(fileName, data) {
-    const project = `${data.name.toLowerCase().split(' ').join('')}.json`;
+    const project = `${data.name.toLowerCase().split(' ').join('')}`;
 
     return fs.writeFileSync(project, JSON.stringify(data), (err) =>
     err ? console.log(err) : console.log('Created successfully'));

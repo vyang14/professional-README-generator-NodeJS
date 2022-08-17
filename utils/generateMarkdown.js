@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+//Renders a license badge depending on the user=provided data
 function renderLicenseBadge(license) {
   switch(license){
     case 'APACHE 2.0':
@@ -15,8 +14,7 @@ function renderLicenseBadge(license) {
 }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+//Renders link to the licensing page for the badge
 function renderLicenseLink(license) {
   switch(license){
     case 'APACHE 2.0':
@@ -32,18 +30,19 @@ function renderLicenseLink(license) {
 }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+//Generates licensing line depending on the user data.
 function renderLicenseSection(data) {
-  if (data.license === 'None') {
+  if (data.licensing === 'None') {
   return ''
 }
-return `${data.title} is protected and licensed under the ${data.license} license.`;
+return `${data.title} is protected and licensed under the ${data.licensing} license.`;
 }
 
-// TODO: Create a function to generate markdown for README
+// fills the readme with the following text including user data
 function generateMarkdown(data) {
-  return `# ${data.title}
+  console.log(`generateMarkdown ran. ${data.title}`)
+
+  var markdown = `# ${data.title}
 
   ## Table of Contents
 
@@ -55,8 +54,8 @@ function generateMarkdown(data) {
   *[Questions](#questions)
 
   ## Licensing 
-  ${renderLicenseBadge(data.license)}
-  ${renderLicenseLink(data.license)}
+  ${renderLicenseBadge(data.licensing)}
+  ${renderLicenseLink(data.licensing)}
   ${renderLicenseSection(data)}
 
   ## Description
@@ -77,6 +76,7 @@ function generateMarkdown(data) {
 
   You can find more of my work on my GitHub page at [GitHub]https://github.com/${data.username}/.
   `;
+  return markdown;
 }
 
 module.exports = generateMarkdown;

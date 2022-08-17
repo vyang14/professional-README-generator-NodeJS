@@ -80,7 +80,7 @@ ${data.usage}
 
 Please reach out to me at ${data.email} with any questions or issues.
 
-You can find more of my work on my GitHub page at [GitHub]https://github.com/${data.username}/.
+You can find more of my work on my GitHub page at https://github.com/${data.username}/.
 `;
 return markdown;
 }

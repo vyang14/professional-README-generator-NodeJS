@@ -66,8 +66,9 @@ const questions = [
 function writeToFile(fileName, data) {
     const project = fileName;
     console.log(`current data = ${fileName} & ${data}`);
-    return fs.writeFileSync(project, JSON.stringify(data), (err) =>
+    fs.writeFileSync(project, data, (err) =>
     err ? console.log(err) : console.log('Created successfully'));
+    return;
 }
 
 // Function to initialize app

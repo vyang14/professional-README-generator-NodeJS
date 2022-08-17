@@ -62,7 +62,7 @@ function generateMarkdown(data) {
   ## Description
 
   ${data.description}
-
+  
   ## Installation
 
   ## Usage

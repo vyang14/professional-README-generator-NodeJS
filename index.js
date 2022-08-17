@@ -57,7 +57,7 @@ const questions = [
 
 // Function to write README file
 function writeToFile(fileName, data) {
-    const project = `${data.name.toLowerCase().split(' ').join('')}`;
+    const project = fileName;
 
     return fs.writeFileSync(project, JSON.stringify(data), (err) =>
     err ? console.log(err) : console.log('Created successfully'));
@@ -66,6 +66,7 @@ function writeToFile(fileName, data) {
 // Function to initialize app
 function init() {
     inquirer.prompt(questions).then((res) => {
+        console.log(res);
         writeToFile('README.md', generateMarkdown({res}));
     });
 }

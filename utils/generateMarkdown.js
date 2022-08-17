@@ -40,8 +40,6 @@ return `${data.title} is protected and licensed under the ${renderLicenseLink(da
 
 // fills the readme with the following text including user data
 function generateMarkdown(data) {
-  console.log(`generateMarkdown ran. ${data.title}`)
-
   var markdown = `# ${data.title}
 
 ## Table of Contents

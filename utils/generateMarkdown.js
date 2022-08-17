@@ -2,13 +2,13 @@
 function renderLicenseBadge(license) {
   switch(license){
     case 'APACHE 2.0':
-      return `####[License](https://img.shields.io/badge/license-${license}-purple.svg)`;
+      return `![License](https://img.shields.io/badge/license-APACHE_2.0-purple.svg)`;
     case 'BSD 3':
-      return `##[License](https://img.shields.io/badge/license-${license}-orange.svg)`;
+      return `![License](https://img.shields.io/badge/license-BSD_3-orange.svg)`;
     case 'GNU GPL':
-      return `##[License](https://img.shields.io/badge/license-${license}-yellow.svg)`;
+      return `![License](https://img.shields.io/badge/license-GNU_GPL-yellow.svg)`;
     case 'MIT':
-      return `##[License](https://img.shields.io/badge/license-${license}-blue.svg)`;
+      return `![License](https://img.shields.io/badge/license-MIT-blue.svg)`;
     case 'None':
       return '';
 }
@@ -18,13 +18,13 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   switch(license){
     case 'APACHE 2.0':
-      return `https://opensource.org/licenses/Apache-2.0`;
+      return `[Apache 2.0](https://opensource.org/licenses/Apache-2.0)`;
     case 'BSD 3':
-      return `https://opensource.org/licenses/BSD-3-Clause`;
+      return `[BSD 3](https://opensource.org/licenses/BSD-3-Clause)`;
     case 'GNU GPL':
-      return `https://www.gnu.org/licenses/licenses.en.html#GPL`;
+      return `[GNU GPL](https://www.gnu.org/licenses/licenses.en.html#GPL)`;
     case 'MIT':
-      return `https://opensource.org/licenses/MIT`;
+      return `[MIT](https://opensource.org/licenses/MIT)`;
     case 'None':
       return '';
 }
@@ -35,7 +35,7 @@ function renderLicenseSection(data) {
   if (data.licensing === 'None') {
   return ''
 }
-return `${data.title} is protected and licensed under the ${data.licensing} license.`;
+return `${data.title} is protected and licensed under the ${renderLicenseLink(data.licensing)} license.`;
 }
 
 // fills the readme with the following text including user data
@@ -46,17 +46,16 @@ function generateMarkdown(data) {
 
 ## Table of Contents
 
-*[Licensing](#licensing)
-*[Installation](#installation)
-*[Usage](#usage)
-*[Contribution](#contribution)
-*[Test](#test)
-*[Questions](#questions)
+* [Licensing](#licensing)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contribution](#contribution)
+* [Test](#test)
+* [Questions](#questions)
 
 ## Licensing 
 ${renderLicenseBadge(data.licensing)}
-${renderLicenseLink(data.licensing)}
-${renderLicenseSection(data)}
+> ${renderLicenseSection(data)}
 
 ## Description
 
@@ -64,13 +63,20 @@ ${data.description}
   
 ## Installation
 
-
+${data.installation}
 
 ## Usage
 
+${data.usage}
+
 ## Contribution
 
+${data.usage}
+
 ## Test
+
+> ${data.test}
+
 
 ## Question
 
